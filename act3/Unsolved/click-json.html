@@ -33,15 +33,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
       // Initial array of movies
+
       var movies = ["The Matrix", "The Notebook", "Mr. Nobody", "The Lion King"];
+      var movieURL = 'http://www.omdbapi.com/?apikey=40e9cece&t='+movies[i]
 
-      // Function for dumping the JSON content for each button into the div
-      function displayMovieInfo() {
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+      }).done(function(response) {
+        $(this).text("<div>" + movies[i] + "</div>")
+        console.log(this);
 
-        // YOUR CODE GOES HERE!!! HINT: You will need to create a new div to hold the JSON.
 
-      }
 
+
+      });
       // Function for displaying movie data
       function renderButtons() {
 
